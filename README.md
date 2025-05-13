@@ -38,6 +38,14 @@
 ##### Training loop
 ##### All were applied for dummy test
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/task%203-7.png)
+##### •	Embedding Layer: 50 dimensions
+##### •	Hidden Layer: 64 units
+##### •	Output Classes: 3
+##### •	Trained for 5 Epochs
+##### •	Loss and Accuracy Progression:
+##### Epoch 1: Accuracy = 50.02%
+##### Epoch 5: Accuracy = 89.79%
+
 
  
  
