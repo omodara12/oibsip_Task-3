@@ -264,7 +264,7 @@ plt.ylabel("Actual")
 plt.title("Naive Bayes Confusion Matrix")
 plt.tight_layout()
 plt.show()
-
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/best%20mo.png)
 
 
 
