@@ -78,25 +78,31 @@
 ### Then called with this;
 ##### model = SentimentLSTM(vocab_size=10000, embed_dim=50, hidden_dim=64, output_dim=3)  # 3 output classes
 ## Training Function
-##### def train_model(model, train_loader, criterion, optimizer, device, epochs=5):
-   #####  model.train()
-  ##### for epoch in range(epochs):
-   ##### epoch_loss = 5
-   ##### correct = 0
-   ##### total = 0
-   ##### for batch_inputs, batch_labels in train_loader:
-   ##### batch_inputs, batch_labels = batch_inputs.to(device), batch_labels.to(device)
-   ##### optimizer.zero_grad()
-   ##### outputs = model(batch_inputs)
-   ##### loss = criterion(outputs, batch_labels)
-   ##### loss.backward()
-   ##### optimizer.step()
-   ##### epoch_loss += loss.item()
-   #####  _, predicted = torch.max(outputs, 1)
-   ##### correct += (predicted == batch_labels).sum().item()
-   #####  total += batch_labels.size(0)
-   ##### accuracy = correct / total
-   ##### print(f"Epoch {epoch+1}/{epochs}, Loss: {epoch_loss:.4f}, Accuracy: {accuracy:.4f}")
+def train_model(model, train_loader, criterion, optimizer, device, epochs=5):
+    model.train()
+    for epoch in range(epochs):
+        epoch_loss = 0
+        correct = 0
+        total = 0
+
+        for batch_inputs, batch_labels in train_loader:
+            batch_inputs, batch_labels = batch_inputs.to(device), batch_labels.to(device)
+
+            optimizer.zero_grad()
+            outputs = model(batch_inputs)
+
+            loss = criterion(outputs, batch_labels)
+            loss.backward()
+            optimizer.step()
+
+            epoch_loss += loss.item()
+            _, predicted = torch.max(outputs, 1)
+            correct += (predicted == batch_labels).sum().item()
+            total += batch_labels.size(0)
+
+        accuracy = correct / total
+        print(f"Epoch {epoch+1}/{epochs}, Loss: {epoch_loss:.4f}, Accuracy: {accuracy:.4f}")
+
    ##### I called with this:
    ##### train_model(model, train_loader, criterion, optimizer, device, epochs=5)
    ##### Epoch 1/5, Loss: 2017.4318, Accuracy: 0.5002
@@ -105,23 +111,28 @@
    ##### Epoch 4/5, Loss: 652.2747, Accuracy: 0.8866
    ##### Epoch 5/5, Loss: 582.4004, Accuracy: 0.8979
    ## Evaluating function
-   ##### def evaluate_model(model, test_loader, criterion, device):
-   ##### model.eval()
-   ##### total_loss = 0
-   ##### correct = 0
-   ##### total = 0
-   ##### with torch.no_grad():
-   ##### for batch_inputs, batch_labels in test_loader:
-   ##### batch_inputs, batch_labels = batch_inputs.to(device), batch_labels.to(device)
-   #####         outputs = model(batch_inputs)
-   #####        loss = criterion(outputs, batch_labels)
-   #####         total_loss += loss.item()
-   #####         _, predicted = torch.max(outputs, 1)
-   #####         correct += (predicted == batch_labels).sum().item()
-   #####         total += batch_labels.size(0)
-   ##### accuracy = correct / total
- #####   avg_loss = total_loss / len(test_loader)
-#####     print(f"Test Loss: {avg_loss:.4f}, Test Accuracy: {accuracy:.4f}")
+  def evaluate_model(model, test_loader, criterion, device):
+    model.eval()
+    total_loss = 0
+    correct = 0
+    total = 0
+
+    with torch.no_grad():
+        for batch_inputs, batch_labels in test_loader:
+            batch_inputs, batch_labels = batch_inputs.to(device), batch_labels.to(device)
+
+            outputs = model(batch_inputs)
+            loss = criterion(outputs, batch_labels)
+
+            total_loss += loss.item()
+            _, predicted = torch.max(outputs, 1)
+            correct += (predicted == batch_labels).sum().item()
+            total += batch_labels.size(0)
+
+    accuracy = correct / total
+    avg_loss = total_loss / len(test_loader)
+    print(f"Test Loss: {avg_loss:.4f}, Test Accuracy: {accuracy:.4f}")
+
 #####    I called with;
 #####    train_model(model, train_loader, criterion, optimizer, device, epochs=5)
     
@@ -132,7 +143,7 @@
     Epoch 3/5, Loss: 1991.4406, Accuracy: 0.5433
     Epoch 4/5, Loss: 1991.7135, Accuracy: 0.5417
     Epoch 5/5, Loss: 1991.5906, Accuracy: 0.5423
-    create sample predictiion function
+ ##### create sample predictiion function
     def sample_predictions(model, test_loader, device, num_samples=5):
     model.eval()
     samples = []
