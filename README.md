@@ -268,6 +268,7 @@ plt.show()
 ## Hyperparameter tuning
 
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/Hyper.png)
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/f.png)
 
 
 
