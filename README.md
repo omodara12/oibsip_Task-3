@@ -172,7 +172,44 @@ def train_model(model, train_loader, criterion, optimizer, device, epochs=5):
 ##### Predicted: 0, True: 1
 ##### Predicted: 2, True: 2
 ##### Predicted: 1, True: 2
+from sklearn.metrics import classification_report, confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
 
+# Switch to evaluation mode
+model.eval()
+
+# Store all predictions and labels
+all_preds = []
+all_labels = []
+
+with torch.no_grad():
+    for batch_inputs, batch_labels in test_loader:
+        batch_inputs = batch_inputs.to(device)
+        batch_labels = batch_labels.to(device)
+
+        outputs = model(batch_inputs)
+        _, predicted = torch.max(outputs, 1)
+
+        all_preds.extend(predicted.cpu().numpy())
+        all_labels.extend(batch_labels.cpu().numpy())
+
+ # Confusion matrix
+cm = confusion_matrix(all_labels, all_preds)
+
+plt.figure(figsize=(6, 5))
+sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=["Negative", "Neutral", "Positive"], yticklabels=["Negative", "Neutral", "Positive"])
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.title("Confusion Matrix")
+plt.show()
+
+# Precision, Recall, F1-score
+print("Classification Report:")
+print(classification_report(all_labels, all_preds, target_names=["Negative", "Neutral", "Positive"]))
+       
+
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/conf.png)
 
 
 
