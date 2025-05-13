@@ -12,7 +12,8 @@
 ##    • Data Cleaning & Exploration
 ## •	Key Cleaning Steps:
 ##### o	Removal of rows with missing and dropping duplicated row
-
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/task3-2.png)
 ##### o Convert sentiment labels to integers
+
 ##### o	Conversion to lowercase and tokenization using nltk.
 ##### o	Final dataset size: ~32,595 records.
