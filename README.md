@@ -236,39 +236,33 @@ plt.show()
 ##### ((130375, 5000), (32594, 5000))
 ## •	Trained on same cleaned dataset
 ### Evaluation function
-##### from sklearn.naive_bayes import MultinomialNB
-##### from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
-# Train the model
-nb_model = MultinomialNB()
-nb_model.fit(X_train_tfidf, y_train)
-
-# Predict on test data
-y_pred = nb_model.predict(X_test_tfidf)
-
-# Evaluation metrics
-print("Accuracy:", accuracy_score(y_test, y_pred))
-print("\nClassification Report:\n", classification_report(y_test, y_pred))
-
-# Confusion matrix
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-cm = confusion_matrix(y_test, y_pred)
-plt.figure(figsize=(6, 4))
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-            xticklabels=["Negative", "Neutral", "Positive"],
-            yticklabels=["Negative", "Neutral", "Positive"])
-plt.xlabel("Predicted")
-plt.ylabel("Actual")
-plt.title("Naive Bayes Confusion Matrix")
-plt.tight_layout()
-plt.show()
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/best%20mo.png)
 ## Hyperparameter tuning
 
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/Hyper.png)
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/f.png)
+## Naive Bayes Observations:
+##### •	Strong overall performance.
+##### •	Excellent recall on positive class (0.92) — great for detecting support or approval.
+##### •	Balanced F1-scores across all classes.
+##  Model Comparison Summary
+##### Metric	    LSTM Model     	Naive Bayes Model
+#####  Accuracy	54%        	      74.8%✅
+#####  Negative F1	0.32	          0.60 ✅
+###### Neutral F1	0.67	           0.77 ✅
+#####  Positive F1	0.55	          0.78 ✅
+#####  Macro F1-Score	0.51	       0.72 ✅
+
+## Insights:
+##### •	Naive Bayes is more effective for this dataset due to the text's short length and the model's robustness in sparse feature spaces.
+##### •	The LSTM model may be underfitting or impacted by data imbalance and limited feature diversity.
+##### •	High recall for positive tweets means the Naive Bayes model can confidently capture praise or support in tweets.
+## Conclusion
+##### This sentiment analysis project successfully compares two classification techniques on Twitter data. The Naive Bayes model emerges as the more practical and effective solution, achieving nearly 75% accuracy and balanced performance across all sentiment classes. With further fine-tuning, especially of the deep learning model, the system can evolve into a robust tool for real-time sentiment monitoring.
+
+_______________________________________
+
 
 
 
