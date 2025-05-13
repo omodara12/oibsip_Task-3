@@ -232,9 +232,39 @@ X_train_tfidf = vectorizer.fit_transform(X_train)
 X_test_tfidf = vectorizer.transform(X_test)
 
 ##### Check shapes
-X_train_tfidf.shape, X_test_tfidf.shape
-((130375, 5000), (32594, 5000))
-•	Trained on same cleaned dataset
+##### X_train_tfidf.shape, X_test_tfidf.shape
+##### ((130375, 5000), (32594, 5000))
+## •	Trained on same cleaned dataset
+### Evaluation function
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+# Train the model
+nb_model = MultinomialNB()
+nb_model.fit(X_train_tfidf, y_train)
+
+# Predict on test data
+y_pred = nb_model.predict(X_test_tfidf)
+
+# Evaluation metrics
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
+
+# Confusion matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+cm = confusion_matrix(y_test, y_pred)
+plt.figure(figsize=(6, 4))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+            xticklabels=["Negative", "Neutral", "Positive"],
+            yticklabels=["Negative", "Neutral", "Positive"])
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.title("Naive Bayes Confusion Matrix")
+plt.tight_layout()
+plt.show()
+
 
 
 
