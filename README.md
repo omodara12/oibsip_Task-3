@@ -172,6 +172,7 @@ def train_model(model, train_loader, criterion, optimizer, device, epochs=5):
 ##### Predicted: 0, True: 1
 ##### Predicted: 2, True: 2
 ##### Predicted: 1, True: 2
+##### The model seems to be predicting Positive (1) frequently, even when the actual labels are Neutral (2) or Negative (0). This indicates some potential bias towards predicting positive sentiment.
 from sklearn.metrics import classification_report, confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -194,7 +195,7 @@ with torch.no_grad():
         all_preds.extend(predicted.cpu().numpy())
         all_labels.extend(batch_labels.cpu().numpy())
 
- # Confusion matrix
+ ### Confusion matrix
 cm = confusion_matrix(all_labels, all_preds)
 
 plt.figure(figsize=(6, 5))
@@ -204,12 +205,39 @@ plt.ylabel("True")
 plt.title("Confusion Matrix")
 plt.show()
 
-# Precision, Recall, F1-score
-print("Classification Report:")
-print(classification_report(all_labels, all_preds, target_names=["Negative", "Neutral", "Positive"]))
+### Precision, Recall, F1-score
+##### print("Classification Report:")
+##### print(classification_report(all_labels, all_preds, target_names=["Negative", "Neutral", "Positive"]))
        
 
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/conf.png)
+## LSTM Observations:
+##### •	Performs better on neutral sentiment.
+##### •	Struggles with negative sentiment recall.
+##### •	Susceptible to class imbalance due to deep learning's reliance on large, balanced datasets.
+## Model 2: Naive Bayes
+• Preprocessing for training
+##### Define features and labels
+X = df["clean_text"]
+y = df["category"]
+
+##### Split data
+##### from sklearn.model_selection import train_test_split
+##### X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+##### TF-IDF Vectorization
+ from sklearn.feature_extraction.text import TfidfVectorizer
+vectorizer = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
+X_train_tfidf = vectorizer.fit_transform(X_train)
+X_test_tfidf = vectorizer.transform(X_test)
+
+##### Check shapes
+X_train_tfidf.shape, X_test_tfidf.shape
+((130375, 5000), (32594, 5000))
+•	Trained on same cleaned dataset
+
+
+
 
 
 
