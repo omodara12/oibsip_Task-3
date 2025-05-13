@@ -153,14 +153,14 @@
     print("Sample Predictions (Predicted, True):")
     for i in range(num_samples):
         print(f"Predicted: {samples[i]}, True: {labels[i]}")
-   Calling function
+   ##### Calling function
    sample_predictions(model, test_loader, device, num_samples=5)
    Sample Predictions (Predicted, True):
-Predicted: 1, True: 1
-Predicted: 0, True: 1
-Predicted: 0, True: 1
-Predicted: 2, True: 2
-Predicted: 1, True: 2
+##### Predicted: 1, True: 1
+##### Predicted: 0, True: 1
+##### Predicted: 0, True: 1
+##### Predicted: 2, True: 2
+##### Predicted: 1, True: 2
 
 
 
