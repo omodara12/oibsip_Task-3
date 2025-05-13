@@ -37,7 +37,7 @@
 ##### Trainig setup
 ##### Training loop
 ##### All were applied for dummy test
-
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/task%208.png)
 ##### •	Embedding Layer: 50 dimensions
 ##### •	Hidden Layer: 64 units
 ##### •	Output Classes: 3
