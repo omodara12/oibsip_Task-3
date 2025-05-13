@@ -16,3 +16,15 @@
 ##### o Convert sentiment labels to integers
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/task3-3.png)
 ##### o	Final dataset size: ~32,595 records.
+## Sentiment Distribution
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/sentiment.png)
+## Interpretatation
+##### There are three sentiment category
+##### Negative (-1)
+##### Neutral (0)
+##### Positive (1)
+##### Most tweets or texts in the dataset express positive sentiment.
+##### There’s a significant drop in the number of negative examples.
+##### The distribution reflects how people talk online (e.g., people tend to post positive or neutral tweets more often than negative ones, depending on the source).
+##### Data preprocessing, labelling, Mapping
+
