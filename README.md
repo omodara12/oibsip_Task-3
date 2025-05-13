@@ -236,7 +236,7 @@ plt.show()
 ##### ((130375, 5000), (32594, 5000))
 ## •	Trained on same cleaned dataset
 ### Evaluation function
-
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/EV.png)
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/best%20mo.png)
 ## Hyperparameter tuning
 
