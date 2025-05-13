@@ -14,6 +14,5 @@
 ##### o	Removal of rows with missing and dropping duplicated row
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/task3-2.png)
 ##### o Convert sentiment labels to integers
-
-##### o	Conversion to lowercase and tokenization using nltk.
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/task3-3.png)
 ##### o	Final dataset size: ~32,595 records.
