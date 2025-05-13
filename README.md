@@ -29,7 +29,8 @@
 ##### Data preprocessing, labelling, Mapping
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/task3-4.png)
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/drop%20NaNpng.png)
-## Training test split
+## Training test split, Encoding
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/task3-5.png)
 
 
 
