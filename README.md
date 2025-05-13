@@ -123,7 +123,7 @@
  #####   avg_loss = total_loss / len(test_loader)
 #####     print(f"Test Loss: {avg_loss:.4f}, Test Accuracy: {accuracy:.4f}")
 #####    I called with;
-    train_model(model, train_loader, criterion, optimizer, device, epochs=5)
+#####    train_model(model, train_loader, criterion, optimizer, device, epochs=5)
     
     output;
     
