@@ -31,6 +31,30 @@
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/drop%20NaNpng.png)
 ## Training test split, Encoding
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/task3-5.png)
+##### Tokenization and padding were applied.
+##### Creating train_dataset
+##### Define LSMT model
+##### Trainig setup
+##### Training loop
+##### All were applied for dummy test
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ training set up
+ training loop
 
 
 
