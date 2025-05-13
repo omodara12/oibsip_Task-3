@@ -37,6 +37,8 @@
 ##### Trainig setup
 ##### Training loop
 ##### All were applied for dummy test
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/task%203-7.png)
+
  
  
  
