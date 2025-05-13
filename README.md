@@ -266,52 +266,8 @@ plt.tight_layout()
 plt.show()
 ![](https://github.com/omodara12/oibsip_Task-3/blob/main/best%20mo.png)
 ## Hyperparameter tuning
-##### from sklearn.naive_bayes import MultinomialNB
-##### from sklearn.model_selection import GridSearchCV
-##### from sklearn.pipeline import Pipeline
-##### from sklearn.metrics import classification_report
 
-# Pipeline: TF-IDF + Naive Bayes
-#####     pipeline = Pipeline([
-   #####  ('tfidf', TfidfVectorizer(max_features=5000)),
-   #####  ('nb', MultinomialNB())
-#####      ])
-
-###  Hyperparameter grid
-##### param_grid = {
-#####    'nb__alpha': [0.1, 0.5, 1.0, 1.5, 2.0]
-#####      }
-
-######  Grid search with 3-fold cross-validation
-#####   grid = GridSearchCV(pipeline, param_grid, cv=3, scoring='f1_weighted', n_jobs=-1, verbose=1)
-#####  grid.fit(X_train, y_train)
-
-### Best model
-##### print("Best Params:", grid.best_params_)
-##### print("Best CV Score (f1_weighted):", grid.best_score_)
-
-#####  Evaluate on test set
-##### best_model = grid.best_estimator_
-##### y_pred = best_model.predict(X_test)
-
-##### print("\nClassification Report on Test Set:\n")
-##### print(classification_report(y_test, y_pred))
-##OUTPUT
-##### Fitting 3 folds for each of 5 candidates, totalling 15 fits
-##### Best Params: {'nb__alpha': 0.1}
-##### Best CV Score (f1_weighted): 0.7334291784978512
-
-### Classification Report on Test Set:
-
- ###        precision    recall  f1-score   support
-
- #####        -1       0.90      0.44      0.59      7152
- #####         0       0.90      0.67      0.77     11067
- #####         1       0.66      0.95      0.78     14375
-
- #####   accuracy                           0.75     32594
- #####  macro avg       0.82      0.69      0.71     32594
-
+![](https://github.com/omodara12/oibsip_Task-3/blob/main/Hyper.png)
 
 
 
